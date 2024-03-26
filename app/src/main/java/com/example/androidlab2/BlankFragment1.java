@@ -1,5 +1,6 @@
 package com.example.androidlab2;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -49,6 +50,15 @@ public class BlankFragment1 extends Fragment {
     }
 
     FragmentBlank1Binding binding;
+    CallBackInterface callBackInterface;
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        callBackInterface = (CallBackInterface) context;
+    }
+    public void setCallBackInterface(CallBackInterface callBackInterface){
+        this.callBackInterface = callBackInterface;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +73,12 @@ public class BlankFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentBlank1Binding.inflate(inflater, container, false);
         View view = binding.getRoot();
+        binding.button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callBackInterface.Button1Switch();
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }

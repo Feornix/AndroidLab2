@@ -10,8 +10,9 @@ import android.view.View;
 
 import com.example.androidlab2.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CallBackInterface {
     ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,23 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        BlankFragment1 fragment = new BlankFragment1();
+        fragmentTransaction.replace(R.id.placeholder, fragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void Button1Switch(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        BlankFragment2 fragment = new BlankFragment2();
+        fragmentTransaction.replace(R.id.placeholder, fragment);
+        fragmentTransaction.commit();
+    }
+
+    public void Button2Switch(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         BlankFragment1 fragment = new BlankFragment1();
