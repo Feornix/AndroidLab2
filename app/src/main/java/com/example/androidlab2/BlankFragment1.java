@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.androidlab2.databinding.FragmentBlank1Binding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BlankFragment1#newInstance} factory method to
@@ -46,6 +48,7 @@ public class BlankFragment1 extends Fragment {
         return fragment;
     }
 
+    FragmentBlank1Binding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,9 @@ public class BlankFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentBlank1Binding.inflate(inflater, container, false);
+        View view = binding.getRoot();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank1, container, false);
+        return view;
     }
 }
