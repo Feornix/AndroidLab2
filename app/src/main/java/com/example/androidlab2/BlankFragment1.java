@@ -51,6 +51,8 @@ public class BlankFragment1 extends Fragment {
 
     FragmentBlank1Binding binding;
     CallBackInterface callBackInterface;
+
+    String text;
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
@@ -76,7 +78,7 @@ public class BlankFragment1 extends Fragment {
         binding.button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callBackInterface.Button1Switch();
+                callBackInterface.Button1Switch(binding.editText.getText().toString());
             }
         });
         // Inflate the layout for this fragment

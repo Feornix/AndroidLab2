@@ -4,6 +4,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 public interface CallBackInterface {
-    public void Button1Switch();
+    public void Button1Switch(String str);
     public void Button2Switch();
 }

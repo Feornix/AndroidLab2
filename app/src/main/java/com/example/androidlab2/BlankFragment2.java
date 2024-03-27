@@ -51,6 +51,8 @@ public class BlankFragment2 extends Fragment {
 
     FragmentBlank2Binding binding;
     CallBackInterface callBackInterface;
+
+    public String text;
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
@@ -70,6 +72,7 @@ public class BlankFragment2 extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentBlank2Binding.inflate(inflater, container, false);
         View view = binding.getRoot();
+        binding.textView.setText(text);
         binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

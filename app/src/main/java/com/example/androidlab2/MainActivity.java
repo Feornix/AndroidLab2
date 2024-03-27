@@ -28,12 +28,14 @@ public class MainActivity extends AppCompatActivity implements CallBackInterface
     }
 
     @Override
-    public void Button1Switch(){
+    public void Button1Switch(String str){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         BlankFragment2 fragment = new BlankFragment2();
+        fragment.text = str;
         fragmentTransaction.replace(R.id.placeholder, fragment);
         fragmentTransaction.commit();
+
     }
 
     public void Button2Switch(){
